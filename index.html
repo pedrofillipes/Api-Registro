@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aplicação de Registros</title>
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Aplicação de Registros</h1>
+    <div class="buttons">
+      <button id="btn-consultar">Consultar</button>
+      <button id="btn-nova-entrada">Nova Entrada</button>
+    </div>
+
+    <!-- Seção Consultar -->
+    <section id="consultar-section" class="hidden">
+      <h2>Consultar Registros</h2>
+      <div class="consulta-filtros">
+        <label for="filtro">Selecione o filtro:</label>
+        <select id="filtro">
+          <option value="">-- Escolha --</option>
+          <option value="nome">Nome</option>
+          <option value="placa">Placa</option>
+          <option value="unidade">Unidade</option>
+        </select>
+        <div id="filtros-dinamicos"></div>
+        <button id="btn-executar-consulta">Consultar</button>
+      </div>
+      <div id="consulta-resultados"></div>
+      <button class="btn-voltar">Voltar</button>
+    </section>
+
+    <!-- Seção Nova Entrada -->
+    <section id="nova-entrada-section" class="hidden">
+      <h2>Nova Entrada</h2>
+      <form id="nova-entrada-form">
+        <label>Nome:
+          <input type="text" name="nome" required />
+        </label>
+        <label>Tipo:
+          <input type="text" name="tipo" required />
+        </label>
+        <label>Unidade:
+          <input type="text" name="unidade" required />
+        </label>
+        <label>Horário:
+          <input type="time" name="horario" required />
+        </label>
+        <label>Data:
+          <input type="date" name="data" required />
+        </label>
+        <label>Modelo:
+          <input type="text" name="modelo" />
+        </label>
+        <label>Placa:
+          <input type="text" name="placa" maxlength="7" style="text-transform: uppercase;" />
+        </label>
+        <label>Observação:
+          <textarea name="observacao"></textarea>
+        </label>
+        <label>Assinatura:
+          <input type="text" name="assinatura" />
+        </label>
+        <button type="submit">Salvar</button>
+      </form>
+      <button class="btn-voltar">Voltar</button>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
