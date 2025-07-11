@@ -1,5 +1,5 @@
 // === CONFIGURE SEUS LINKS AQUI ===
-const csvURL = "https://docs.google.com/spreadsheets/d/1QZAYAFAtf-Z5E5_AWcEpNC5WADtUpONR2j3QGTtH1C4/edit?usp=sharinghttps://docs.google.com/spreadsheets/d/e/2PACX-1vSQfYgmPuKdMVYjqBK1ExVkGid51oNezVXsmCMW4y0aDgwLzVC5U0PMFveduspteRUW2LIHloW_ZXdw/pub?gid=2061443977&single=true&output=csv";
+const csvURL = "https://docs.google.com/spreadsheets/d/e/2PACX-.../pub?gid=0&single=true&output=csv";
 
 // Seletores
 const btnConsultar = document.getElementById("btn-consultar");
