@@ -64,3 +64,20 @@ input, select, textarea {
   margin-top: 1rem;
   background-color: var(--secondary-color);
 }
+
+.resultados-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.resultados-container th,
+.resultados-container td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.resultados-container th {
+  background-color: #f0f0f0;
+}
