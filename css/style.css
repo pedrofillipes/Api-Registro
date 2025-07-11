@@ -1,74 +1,44 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background: #f7f7f7;
   margin: 0;
   padding: 0;
 }
 
 .container {
-  max-width: 600px;
-  margin: 2rem auto;
+  max-width: 800px;
+  margin: 0 auto;
   padding: 1rem;
-  background: #fff;
-  border-radius: var(--border-radius);
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-h1, h2 {
-  text-align: center;
-}
-
-.buttons {
+.botoes-principais {
   display: flex;
-  justify-content: center;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 button {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
   padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
+  font-size: 1rem;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #ddd;
 }
 
 .hidden {
   display: none;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing);
-}
-
-label {
-  display: flex;
-  flex-direction: column;
-}
-
-input, select, textarea {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: var(--border-radius);
-}
-
-.btn-voltar {
+.resultados-container {
   margin-top: 1rem;
-  background-color: var(--secondary-color);
+  overflow-x: auto;
 }
 
 .resultados-container table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1rem;
 }
 
 .resultados-container th,
@@ -84,34 +54,11 @@ input, select, textarea {
 
 .btn-buscar {
   margin-top: 0.5rem;
-  padding: 0.5rem 1rem;
   background-color: #3498db;
-  border: none;
   color: white;
-  cursor: pointer;
+  border: none;
 }
 
 .btn-buscar:hover {
   background-color: #2980b9;
-}
-
-.hidden {
-  display: none;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-.botoes-principais {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.resultados-container {
-  margin-top: 1rem;
-  overflow-x: auto;
 }

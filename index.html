@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Registro de Entradas</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="variables.css" />
+  <title>Controle de Entradas</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/variables.css"/>
 </head>
 <body>
   <main class="container">
@@ -15,7 +15,7 @@
       <button id="btn-nova-entrada">Nova Entrada</button>
     </div>
 
-    <!-- Seção de Consulta -->
+    <!-- Seção Consulta -->
     <section id="consultar-section" class="hidden">
       <h2>Consultar Registros</h2>
       <label for="filtro">Filtrar por:</label>
@@ -25,22 +25,19 @@
         <option value="placa">Placa</option>
         <option value="unidade">Unidade</option>
       </select>
-
       <div id="filtros-dinamicos"></div>
-
       <div id="resultados" class="resultados-container"></div>
-
       <button class="btn-voltar">Voltar</button>
     </section>
 
-    <!-- Seção de Nova Entrada (apenas abre Google Forms) -->
+    <!-- Seção Nova Entrada -->
     <section id="nova-entrada-section" class="hidden">
       <h2>Nova Entrada</h2>
-      <p>Ao clicar em "Nova Entrada", será aberta uma nova janela com o formulário de registro.</p>
+      <p>Ao clicar em "Nova Entrada", o formulário abrirá em nova janela.</p>
       <button class="btn-voltar">Voltar</button>
     </section>
   </main>
 
-  <script src="main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

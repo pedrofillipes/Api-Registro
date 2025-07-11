@@ -1,5 +1,6 @@
 // === CONFIGURE SEUS LINKS AQUI ===
-const csvURL = "https://docs.google.com/spreadsheets/d/e/2PACX-.../pub?gid=0&single=true&output=csv";
+const csvURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSQfYgmPuKdMVYjqBK1ExVkGid51oNezVXsmCMW4y0aDgwLzVC5U0PMFveduspteRUW2LIHloW_ZXdw/pub?gid=2061443977&single=true&output=csv";
+const googleFormsURL = "https://forms.gle/N8ZdQ6nTbuwAfBJE7";
 
 // Seletores
 const btnConsultar = document.getElementById("btn-consultar");
@@ -11,9 +12,6 @@ const filtroSelect = document.getElementById("filtro");
 const filtrosDinamicos = document.getElementById("filtros-dinamicos");
 const resultadosContainer = document.getElementById("resultados");
 
-// === CONFIGURE AQUI SEU FORMULÁRIO GOOGLE FORMS ===
-const googleFormsURL = "https://forms.gle/5B5uUash3BURqLym7";
-
 // === BOTÃO NOVA ENTRADA ===
 btnNovaEntrada.addEventListener("click", () => {
   window.open(googleFormsURL, "_blank");
@@ -23,10 +21,10 @@ btnNovaEntrada.addEventListener("click", () => {
 btnConsultar.addEventListener("click", () => {
   consultarSection.classList.remove("hidden");
   novaEntradaSection.classList.add("hidden");
-  resultadosContainer.innerHTML = ""; // Limpar resultados
+  resultadosContainer.innerHTML = "";
 });
 
-// === Voltar ===
+// === BOTÕES VOLTAR ===
 btnsVoltar.forEach(btn => {
   btn.addEventListener("click", () => {
     consultarSection.classList.add("hidden");
@@ -34,9 +32,9 @@ btnsVoltar.forEach(btn => {
   });
 });
 
-// === Campos dinâmicos do filtro ===
+// === Campos dinâmicos de filtro ===
 filtroSelect.addEventListener("change", () => {
-  filtrosDinamicos.innerHTML = ""; // Limpar
+  filtrosDinamicos.innerHTML = "";
 
   if (filtroSelect.value === "nome") {
     const input = document.createElement("input");
@@ -77,7 +75,7 @@ filtroSelect.addEventListener("change", () => {
     filtrosDinamicos.appendChild(inputCodigo);
   }
 
-  // Botão de buscar
+  // Botão buscar
   const btnBuscar = document.createElement("button");
   btnBuscar.textContent = "Buscar";
   btnBuscar.type = "button";
@@ -86,7 +84,7 @@ filtroSelect.addEventListener("change", () => {
   filtrosDinamicos.appendChild(btnBuscar);
 });
 
-// === Buscar dados filtrados ===
+// === Função buscar dados ===
 async function buscarDados() {
   resultadosContainer.innerHTML = "Carregando...";
 
@@ -95,7 +93,6 @@ async function buscarDados() {
     const csvText = await response.text();
     const dados = parseCSV(csvText);
 
-    // Filtro selecionado
     const tipoFiltro = filtroSelect.value;
     let resultado = [];
 
@@ -112,7 +109,7 @@ async function buscarDados() {
     if (tipoFiltro === "unidade") {
       const unidade = document.getElementById("campo-filtro-unidade").value.toUpperCase();
       const codigo = document.getElementById("campo-filtro-codigo").value.toUpperCase();
-      resultado = dados.filter(l => 
+      resultado = dados.filter(l =>
         l["Unidade"].toUpperCase() === unidade &&
         l["Unidade"].toUpperCase().endsWith(codigo)
       );
@@ -130,7 +127,7 @@ async function buscarDados() {
   }
 }
 
-// === Função para converter CSV em array de objetos ===
+// === Conversor CSV em array de objetos ===
 function parseCSV(csv) {
   const linhas = csv.trim().split("\n");
   const cabecalho = linhas.shift().split(",");
@@ -145,10 +142,8 @@ function parseCSV(csv) {
   });
 }
 
-// === Gera tabela HTML com resultados ===
+// === Gera tabela HTML ===
 function gerarTabelaHTML(dados) {
-  if (dados.length === 0) return "Nenhum registro.";
-
   let html = "<table><thead><tr>";
   Object.keys(dados[0]).forEach(col => {
     html += `<th>${col}</th>`;
