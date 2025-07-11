@@ -7,19 +7,21 @@ const btnsVoltar = document.querySelectorAll(".btn-voltar");
 const filtroSelect = document.getElementById("filtro");
 const filtrosDinamicos = document.getElementById("filtros-dinamicos");
 
-// Mostrar Consultar
-btnConsultar.addEventListener("click", () => {
-  consultarSection.classList.remove("hidden");
-  novaEntradaSection.classList.add("hidden");
-});
+// === CONFIGURE SEUS LINKS AQUI ===
+const googleFormsURL = "https://forms.gle/5B5uUash3BURqLym7";
+const googleSheetsURL = "https://docs.google.com/spreadsheets/d/1QZAYAFAtf-Z5E5_AWcEpNC5WADtUpONR2j3QGTtH1C4/edit?usp=sharing";
 
-// Mostrar Nova Entrada
+// === BOTÃO NOVA ENTRADA ===
 btnNovaEntrada.addEventListener("click", () => {
-  novaEntradaSection.classList.remove("hidden");
-  consultarSection.classList.add("hidden");
+  window.open(googleFormsURL, "_blank");
 });
 
-// Voltar
+// === BOTÃO CONSULTAR ===
+btnConsultar.addEventListener("click", () => {
+  window.open(googleSheetsURL, "_blank");
+});
+
+// === Voltar (se você quiser esconder as seções locais) ===
 btnsVoltar.forEach(btn => {
   btn.addEventListener("click", () => {
     consultarSection.classList.add("hidden");
@@ -27,7 +29,7 @@ btnsVoltar.forEach(btn => {
   });
 });
 
-// Campos dinâmicos no filtro
+// === Campos dinâmicos do filtro local (opcional, pode manter) ===
 filtroSelect.addEventListener("change", () => {
   filtrosDinamicos.innerHTML = ""; // Limpar
 
@@ -64,34 +66,5 @@ filtroSelect.addEventListener("change", () => {
 
     filtrosDinamicos.appendChild(selectUnidade);
     filtrosDinamicos.appendChild(inputCodigo);
-  }
-});
-
-const novaEntradaForm = document.getElementById("nova-entrada-form");
-
-novaEntradaForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const formData = new FormData(novaEntradaForm);
-
-  const data = {};
-  formData.forEach((value, key) => {
-    data[key] = value.toUpperCase();
-  });
-
-  const params = new URLSearchParams(data).toString();
-
-  try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbxirfwNbN0ZSIO2jxzT5RdgM2sOFDg7mmjA8dcZIWAuM75tDgG1jPJZ5lHpQW-JEA/exec" + "?" + params);
-    const result = await response.json();
-    if (result.status === "success") {
-      alert("Dados salvos com sucesso!");
-      novaEntradaForm.reset();
-    } else {
-      alert("Erro ao salvar: " + JSON.stringify(result));
-    }
-  } catch (error) {
-    console.error("Erro:", error);
-    alert("Erro ao enviar dados: " + error);
   }
 });
