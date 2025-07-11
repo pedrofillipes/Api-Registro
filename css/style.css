@@ -81,3 +81,37 @@ input, select, textarea {
 .resultados-container th {
   background-color: #f0f0f0;
 }
+
+.btn-buscar {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #3498db;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-buscar:hover {
+  background-color: #2980b9;
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.botoes-principais {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.resultados-container {
+  margin-top: 1rem;
+  overflow-x: auto;
+}
