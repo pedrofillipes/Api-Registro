@@ -82,17 +82,16 @@ novaEntradaForm.addEventListener("submit", async (e) => {
   const params = new URLSearchParams(data).toString();
 
   try {
-    const response = await fetch("Shttps://script.google.com/macros/s/AKfycbyY7lGuLuLv_Volv4m1qoxWFqKCf3IKo7u3bdoHFlOttgvmgaL6o51FSeM3UlIhL75O/exec" + "?" + params);
+    const response = await fetch("https://script.google.com/macros/s/AKfycbxirfwNbN0ZSIO2jxzT5RdgM2sOFDg7mmjA8dcZIWAuM75tDgG1jPJZ5lHpQW-JEA/exec" + "?" + params);
     const result = await response.json();
     if (result.status === "success") {
       alert("Dados salvos com sucesso!");
       novaEntradaForm.reset();
     } else {
-      alert("Ocorreu um erro ao salvar.");
+      alert("Erro ao salvar: " + JSON.stringify(result));
     }
   } catch (error) {
     console.error("Erro:", error);
-    alert("Erro ao enviar dados.");
+    alert("Erro ao enviar dados: " + error);
   }
 });
-
