@@ -76,18 +76,13 @@ novaEntradaForm.addEventListener("submit", async (e) => {
 
   const data = {};
   formData.forEach((value, key) => {
-    data[key] = value.toUpperCase(); // Tudo em maiúsculo
+    data[key] = value.toUpperCase();
   });
 
-  try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbyY7lGuLuLv_Volv4m1qoxWFqKCf3IKo7u3bdoHFlOttgvmgaL6o51FSeM3UlIhL75O/exec", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
+  const params = new URLSearchParams(data).toString();
 
+  try {
+    const response = await fetch("Shttps://script.google.com/macros/s/AKfycbyY7lGuLuLv_Volv4m1qoxWFqKCf3IKo7u3bdoHFlOttgvmgaL6o51FSeM3UlIhL75O/exec" + "?" + params);
     const result = await response.json();
     if (result.status === "success") {
       alert("Dados salvos com sucesso!");
@@ -100,3 +95,4 @@ novaEntradaForm.addEventListener("submit", async (e) => {
     alert("Erro ao enviar dados.");
   }
 });
+
